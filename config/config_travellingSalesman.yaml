@@ -1,0 +1,11 @@
+---
+min_range: 0
+max_range: 200
+num_locations: 30
+num_population: 100
+fittest_subset_percentage: .10
+mutated_subset_percentage: 0.7
+plot_generations: 100
+inheritance_factor: "random"
+convergence_generation: 3000
+...
