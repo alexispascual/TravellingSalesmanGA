@@ -5,7 +5,7 @@ class TraversePath(object):
 	def __init__(self, num_locations):
 
 		self.fitness_cost = 0
-		self.traverse_path = self.generatePath(num_locations)
+		self.traverse_path = self.generateRandomPath(num_locations)
 
 	@staticmethod
 	def generateRandomPath(num_locations):
@@ -19,16 +19,18 @@ class TraversePath(object):
 			return traverse_path
 
 	@staticmethod
-	def calculateCost(locations, score):
+	def calculateCost(locations, scores):
 
-		for index, waypoint in enumerate(traverse_path):
+		for index, waypoint in enumerate(self.traverse_path):
+			
+			traverse_score += scores[index]
 
 			if index == (len(traverse_path) - 1):
 				break;
 
 			traverse_distance += calculateDistance(locations[waypoint], locations[index + 1])
-
-		self.fitness_cost = traverse_distance
+			
+		self.fitness_cost = traverse_distance + traverse_score
 			
 
 	@staticmethod
