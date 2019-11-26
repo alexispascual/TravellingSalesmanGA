@@ -61,3 +61,50 @@ def plotFigure(path, initial_locations, generation, fitness_cost):
 
 	plt.savefig(full_save_path)
 	plt.close()
+
+
+def plotPathLengthvsScore(population):
+
+	fig, ax = plt.subplots(2, 1, figsize = (14, 10))
+
+	for path in population:
+		ax[0].scatter(len(path.traverse_path), path.fitness_cost_score)
+		ax[1].scatter(path.fitness_cost_distance, path.fitness_cost_score)
+
+	ax[0].set_title('Length of traverse vs Score')
+	ax[0].set_xlabel('Length of Traverse')
+	ax[0].set_ylabel('Score')
+
+	ax[1].set_title('Distance vs Score')
+	ax[1].set_xlabel('Distance')
+	ax[1].set_ylabel('Score')
+
+	save_path = os.path.join(".", "plots")
+
+	if not (os.path.isdir(save_path)):
+		print("Creating save directory in ../plots/")
+		os.mkdir(save_path)
+
+	full_save_path = os.path.join(save_path, "Traverse vs Score.png")
+
+	plt.savefig(full_save_path)
+	plt.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

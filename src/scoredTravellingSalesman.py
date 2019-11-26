@@ -15,6 +15,7 @@ from tools.cost import calculateFitnestCost, calculateDistance
 from tools.initializers import initializeSpace, generatePopulation, initializeScores
 from tools.mutations import mutateGenomes, getInheritanceFactor
 from tools.plot import plotFigure
+from tools.plot import plotPathLengthvsScore
 
 from itertools import permutations
 from pprint import pprint as pp
@@ -91,6 +92,8 @@ if __name__ == "__main__":
 
 		for path in population:
 			print("{}, {}, {}".format(path.fitness_cost_distance, path.fitness_cost_score, path.traverse_path))
+
+		plotPathLengthvsScore(population)
 
 		exit(1)
 
